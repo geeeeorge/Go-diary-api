@@ -2,8 +2,10 @@ package repository
 
 import (
 	"context"
-	"github.com/geeeeorge/Go-diary-api/model"
+
 	"gorm.io/gorm"
+
+	"github.com/geeeeorge/Go-diary-api/model"
 )
 
 // PostgresMemoRepository implements memo repository

@@ -2,9 +2,11 @@ package usecase
 
 import (
 	"context"
+
+	"github.com/go-playground/validator/v10"
+
 	"github.com/geeeeorge/Go-diary-api/memo"
 	"github.com/geeeeorge/Go-diary-api/model"
-	"github.com/go-playground/validator/v10"
 )
 
 // MemoUsecase implements memo repository
