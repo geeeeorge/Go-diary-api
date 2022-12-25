@@ -1,15 +1,16 @@
 package server
 
 import (
-	"Go-diary-api/memo/handler"
-	"Go-diary-api/memo/repository"
-	"Go-diary-api/memo/usecase"
 	"context"
 	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/geeeeorge/Go-diary-api/memo/handler"
+	"github.com/geeeeorge/Go-diary-api/memo/repository"
+	"github.com/geeeeorge/Go-diary-api/memo/usecase"
 
 	"gorm.io/gorm"
 
@@ -43,9 +44,9 @@ func (s *Server) setupRoute() {
 	memoUsecase := usecase.NewMemoUsecase(repo)
 	memoHandler := handler.NewMemoHTTPHandler(memoUsecase)
 
-	e.POST("/memo", memoHandler.HandlerCreateMemo)
+	e.POST("/memo", memoHandler.HandleCreateMemo)
 	e.GET("/memo", memoHandler.HandleGetAllMemo)
-	e.GET("/memo/:memo_id", memoHandler.HandleGetMemoByID)
+	e.GET("/memo/:id", memoHandler.HandleGetMemoByID)
 
 	s.echo = e
 }
