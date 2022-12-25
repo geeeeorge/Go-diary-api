@@ -1,10 +1,11 @@
 package main
 
 import (
+	log "github.com/sirupsen/logrus"
+
 	"github.com/geeeeorge/Go-diary-api/config"
 	"github.com/geeeeorge/Go-diary-api/infra/database"
 	"github.com/geeeeorge/Go-diary-api/infra/server"
-	log "github.com/sirupsen/logrus"
 )
 
 func main() {
