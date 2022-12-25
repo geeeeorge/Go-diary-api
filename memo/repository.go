@@ -8,7 +8,7 @@ import (
 
 // Repository defines memo repository contract
 type Repository interface {
-	CreateMemo(ctx context.Context, memo *model.Memo) error
-	GetMemoByID(ctx context.Context, id int) (*model.Memo, error)
-	GetAllMemo(ctx context.Context) ([]*model.Memo, error)
+	InsertMemo(ctx context.Context, memo *model.Memo) error
+	SelectMemoByID(ctx context.Context, id int) (*model.Memo, error)
+	SelectAllMemo(ctx context.Context) ([]*model.Memo, error)
 }

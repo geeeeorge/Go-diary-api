@@ -28,15 +28,15 @@ func (u *MemoUsecase) CreateMemo(ctx context.Context, memo *model.Memo) error {
 	if err := u.validate.Struct(memo); err != nil {
 		return err
 	}
-	return u.repository.CreateMemo(ctx, memo)
+	return u.repository.InsertMemo(ctx, memo)
 }
 
 // GetMemoByID gets memo by given id
 func (u *MemoUsecase) GetMemoByID(ctx context.Context, id int) (*model.Memo, error) {
-	return u.repository.GetMemoByID(ctx, id)
+	return u.repository.SelectMemoByID(ctx, id)
 }
 
 // GetAllMemo gets all memos stored in repository
 func (u *MemoUsecase) GetAllMemo(ctx context.Context) ([]*model.Memo, error) {
-	return u.repository.GetAllMemo(ctx)
+	return u.repository.SelectAllMemo(ctx)
 }
