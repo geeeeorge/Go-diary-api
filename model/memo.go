@@ -5,7 +5,7 @@ import "time"
 // Memo represents memo
 type Memo struct {
 	ID        int        `json:"id" db:"id"`
-	Date      *time.Time `json:"date" db:"date"`
+	Date      string     `json:"date" db:"date" validate:"date_validation"`
 	Title     string     `json:"title" db:"title"`
 	Content   string     `json:"content" db:"content"`
 	Check     bool       `json:"check" db:"check"`

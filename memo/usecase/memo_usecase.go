@@ -7,6 +7,7 @@ import (
 
 	"github.com/geeeeorge/Go-diary-api/memo"
 	"github.com/geeeeorge/Go-diary-api/model"
+	"github.com/geeeeorge/Go-diary-api/util/validate"
 )
 
 // MemoUsecase implements memo repository
@@ -25,7 +26,12 @@ func NewMemoUsecase(repository memo.Repository) *MemoUsecase {
 
 // CreateMemo creates a new memo
 func (u *MemoUsecase) CreateMemo(ctx context.Context, memo *model.Memo) error {
-	if err := u.validate.Struct(memo); err != nil {
+	err := u.validate.RegisterValidation("date_validation", validate.DateValidation)
+	if err != nil {
+		return err
+	}
+	err = u.validate.Struct(memo)
+	if err != nil {
 		return err
 	}
 	return u.repository.InsertMemo(ctx, memo)
