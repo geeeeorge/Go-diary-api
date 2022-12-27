@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:9-alpine
+    container_name: db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: daily_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./initdb/db:/docker-entrypoint-initdb.d
+
+  db-test:
+    image: postgres:9-alpine
+    container_name: db-test
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: daily_app_test
+    ports:
+      - "5433:5432"
