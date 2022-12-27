@@ -33,6 +33,9 @@ func (h *MemoHTTPHandler) HandleCreateMemo(c echo.Context) error {
 		})
 	}
 
+	// Checkはfalseで初期化
+	m.Check = false
+
 	err = h.usecase.CreateMemo(c.Request().Context(), &m)
 	if err != nil {
 		statusCode := http.StatusInternalServerError
